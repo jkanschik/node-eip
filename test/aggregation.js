@@ -3,7 +3,7 @@
 var vows = require('vows'),
     assert = require('assert'),
     Route = require("../lib/eip").Route,
-    aggregator = require("../lib/aggregator");
+    aggregator = require("../lib/eip").aggregator;
 
 // Create a Test Suite
 vows.describe('For simple asynchronous routes:').addBatch({
@@ -31,7 +31,7 @@ vows.describe('For simple asynchronous routes:').addBatch({
 			var that = this;
 			this.events = [];
 			var r = new Route()
-				.aggregate({emitter: aggregator.Emitter.interval(1000)})
+				.aggregate({emitter: new aggregator.Emitter.IntervallEmitter(1000)})
 				.process(this.callback);
 			r.inject("First event");
 			r.inject("Second event");
@@ -49,7 +49,7 @@ vows.describe('For simple asynchronous routes:').addBatch({
 			}
 		}
 	}
-}).run();
+}).export(module);
 
 
 

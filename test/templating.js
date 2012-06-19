@@ -140,7 +140,7 @@ vows.describe('For direct calls of templates ').addBatch({
 			assert.equal(event.body.nested.attr3, "<p>Some paragraph.</p>");
 		}
 	}
-}).run(); // Run it
+}).export(module);
 
 
 

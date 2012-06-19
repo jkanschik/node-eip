@@ -68,9 +68,7 @@ vows.describe('For the simple expression language').addBatch({
 	}
 
 	
-})
-.run(); // Run it
-
+}).export(module);
 
 
 
