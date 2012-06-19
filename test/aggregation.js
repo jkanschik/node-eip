@@ -3,6 +3,7 @@
 var vows = require('vows'),
     assert = require('assert'),
     Route = require("../lib/eip").Route,
+    eipUtil = require("../lib/eip").util
     aggregator = require("../lib/eip").aggregator;
 
 // Create a Test Suite
@@ -29,24 +30,23 @@ vows.describe('For simple asynchronous routes:').addBatch({
 	'when sending two events to an intervall aggregator': {
 		topic: function() {
 			var that = this;
-			this.events = [];
 			var r = new Route()
 				.aggregate({emitter: new aggregator.Emitter.IntervallEmitter(1000)})
 				.process(this.callback);
-			r.inject("First event");
-			r.inject("Second event");
-			r.shutDown();
+			var e1 = eipUtil.createEvent("First event");
+			var e2 = eipUtil.createEvent("Second event");
+			e1.headers.correlationId = e2.headers.correlationId = "some id";
+			r.inject(e1);
+			r.inject(e2);
 		},
-		'we should get an event which': {
-			'is not null': function (event, callback) {
-				assert.isNotNull(event);
-			},
-			'is an array of two events': function (event, callback) {
-				assert.isArray(event.body);
-				assert.lengthOf(event.body, 2);
-				assert.equal(event.body[0].body, "First event");
-				assert.equal(event.body[1].body, "Second event");
-			}
+		'the event is not null': function (event, callback) {
+			assert.isNotNull(event);
+		},
+		'the event is an array of two events': function (event, callback) {
+			assert.isArray(event.body);
+			assert.lengthOf(event.body, 2);
+			assert.equal(event.body[0].body, "First event");
+			assert.equal(event.body[1].body, "Second event");
 		}
 	}
 }).export(module);
