@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/jkanschik/node-eip.png)](http://travis-ci.org/jkanschik/node-eip)
+
 # Examples
 
 ## Hello World
