@@ -45,34 +45,34 @@ vows.describe('If processors throw an exception').addBatch({
 	}
 }).export(module);
 
-//vows.describe('If processors set the exception header').addBatch({
-//	'with default error handling': {
-//		topic: function() {
-//			var self = this;
-//			this.numberOfAttempts = 0;
-//			var r = new Route().process(function(event, cb) {
-//				self.numberOfAttempts += 1;
-//				event.headers._exception = {
-//					cause: "Some exception"
-//				};
-//			});
-//			r.errorRoute
-//				.process(function(event, cb){self.callback.call(self, event, cb)});
-//			r.inject("Text");
-//			r.shutDown();
-//		},
-//		'the error handling route should be invoked': function (event, callback) {
-//			assert.isObject(event);
-//			assert.equal(event.headers._exception.cause, "Some exception");
-//			assert.equal(event.headers._exception.numberOfAttempts, 3);
-//			assert.isNotNull(event.headers._exception.timestamp);
-//			assert.equal(event.body, "Text");
-//		},
-//		'the failing processor should be invoked three times': function (event, callback) {
-//			assert.equal(this.numberOfAttempts, 3);
-//		}
-//	}
-//}).export(module);
+vows.describe('If processors set the exception header').addBatch({
+	'with default error handling': {
+		topic: function() {
+			var self = this;
+			this.numberOfAttempts = 0;
+			var r = new Route().process(function(event, cb) {
+				self.numberOfAttempts += 1;
+				event.headers._exception = {
+					cause: "Some exception"
+				};
+			});
+			r.errorRoute
+				.process(function(event, cb){self.callback.call(self, event, cb)});
+			r.inject("Text");
+			r.shutDown();
+		},
+		'the error handling route should be invoked': function (event, callback) {
+			assert.isObject(event);
+			assert.equal(event.headers._exception.cause, "Some exception");
+			assert.equal(event.headers._exception.numberOfAttempts, 3);
+			assert.isNotNull(event.headers._exception.timestamp);
+			assert.equal(event.body, "Text");
+		},
+		'the failing processor should be invoked three times': function (event, callback) {
+			assert.equal(this.numberOfAttempts, 3);
+		}
+	}
+}).export(module);
 
 
 
