@@ -27,11 +27,11 @@ vows.describe('For simple asynchronous routes:').addBatch({
 			assert.deepEqual(this.events[0].body, {data:1});
 		} 
 	},
-	'when sending two events to an intervall aggregator': {
+	'when sending two events to an interval aggregator': {
 		topic: function() {
 			var that = this;
 			var r = new Route()
-				.aggregate({emitter: new aggregator.Emitter.IntervallEmitter(1000)})
+				.aggregate({emitter: new aggregator.Emitter.IntervalEmitter(1000)})
 				.process(this.callback);
 			var e1 = eipUtil.createEvent("First event");
 			var e2 = eipUtil.createEvent("Second event");
