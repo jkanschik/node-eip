@@ -52,9 +52,7 @@ vows.describe('If processors set the exception header').addBatch({
 			this.numberOfAttempts = 0;
 			var r = new Route().process(function(event, cb) {
 				self.numberOfAttempts += 1;
-				event.headers._exception = {
-					cause: "Some exception"
-				};
+				cb(event, "Some exception");
 			});
 			r.errorRoute
 				.process(function(event, cb){self.callback.call(self, event, cb)});
