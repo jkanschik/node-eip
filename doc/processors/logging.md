@@ -1,6 +1,8 @@
 ---
 layout: default
 title: Logging
+next: Message Routing
+next_url: doc/processors/dispatching
 ---
 # Logger
 

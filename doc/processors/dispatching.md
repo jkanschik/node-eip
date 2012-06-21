@@ -1,6 +1,10 @@
 ---
 layout: default
 title: Message routing
+previous: Logging
+previous_url: doc/processors/logging
+next: Message translation
+next_url: doc/processors/conversion
 ---
 # Message routing
 
