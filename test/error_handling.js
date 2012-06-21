@@ -45,7 +45,7 @@ vows.describe('If processors throw an exception').addBatch({
 	}
 }).export(module);
 
-vows.describe('If processors set the exception header').addBatch({
+vows.describe('If processors return an exception').addBatch({
 	'with default error handling': {
 		topic: function() {
 			var self = this;
