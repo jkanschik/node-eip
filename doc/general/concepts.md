@@ -17,6 +17,7 @@ There are certain header names which are reserved and have a special meaning. Th
 
 * `id`: The id of an event. If the id is not explicitly defined when the event is created, node-eip will generate an id.
 * `correlationId`: The correlation id of an event, mainly used for aggregation.
+* `_exception`: Used internally for error handling.
 
 
 ## Route
