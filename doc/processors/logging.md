@@ -1,3 +1,7 @@
+---
+layout: default
+title: Logging
+---
 # Logger
 
 The logger writes the event to a specified stream, which defaults to `stdout`, without changing the event. It can be added to a route using the `log` function.

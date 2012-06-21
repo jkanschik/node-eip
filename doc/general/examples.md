@@ -1,3 +1,8 @@
+---
+layout: default
+title: Examples
+---
+
 # Examples
 
 ## Hello World

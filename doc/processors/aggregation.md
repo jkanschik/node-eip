@@ -1,3 +1,7 @@
+---
+layout: default
+title: Aggregation
+---
 # Aggregation Processor
 
 The aggregation processor allows you to combine a number of incoming event to a single event.

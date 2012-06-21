@@ -1,3 +1,8 @@
+---
+layout: default
+title: Concepts of Enterprise Intergration Pattern
+---
+
 # Concepts
 
 ## Event

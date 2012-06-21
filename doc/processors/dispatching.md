@@ -1,3 +1,7 @@
+---
+layout: default
+title: Message routing
+---
 # Message routing
 
 Messages can be routed to different routes using either the `.choice` or the `.route` processor.
