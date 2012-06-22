@@ -1,4 +1,6 @@
-# About Node EIP [![Build Status](https://secure.travis-ci.org/jkanschik/node-eip.png)](http://travis-ci.org/jkanschik/node-eip)
+# Node EIP [![Build Status](https://secure.travis-ci.org/jkanschik/node-eip.png)](http://travis-ci.org/jkanschik/node-eip)
+
+## About 
 
 Node EIP is a port of the Enterprise Integration Patterns to node.js.
 
@@ -7,20 +9,20 @@ which often happens in a functionally non-trivial scenario.
 Typically, you hae a nested sequence of callback functions, which is difficult to read and write.
 The node module async.js provides help in a lot of situations, but Node EIP will make life even easier.
 
-# Getting Started
+## Getting Started
 
 If you are familiar with the Enterprise Integration Patterns, have a look at some [examples](http://jkanschik.github.com/node-eip/doc/general/examples)
 and dive in into the different processors provided by Node EIP.
 
 If EIP is completely new to you, you should start with the chapter about EIP concepts, and proceed with the examples. 
 
-# Installation
+## Installation
 
 To install the latest from the repository, run::
 
     npm install https://github.com/jkanschik/node-eip.git
 
-# Examples
+## Examples
 
 The typical "Hello world!" example, which simply prints to the console:
 
@@ -43,3 +45,16 @@ which prints "Hello world!" or
 	
 which prints "This is the body: 'Hello world!'.".
 There are more examples on the [documentation](http://jkanschik.github.com/node-eip/doc/).
+
+## Related work
+
+You may want to look at other node modules which are similar or at least solve similar problems:
+
+* https://github.com/caolan/async
+* https://github.com/creationix/step/
+* https://github.com/kriskowal/q
+* https://github.com/medikoo/deferred
+
+For some background information about promises, see also:
+
+* http://howtonode.org/promises
