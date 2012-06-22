@@ -1,5 +1,4 @@
-# About Node EIP
-[![Build Status](https://secure.travis-ci.org/jkanschik/node-eip.png)](http://travis-ci.org/jkanschik/node-eip)
+# About Node EIP [![Build Status](https://secure.travis-ci.org/jkanschik/node-eip.png)](http://travis-ci.org/jkanschik/node-eip)
 
 Node EIP is a port of the Enterprise Integration Patterns to node.js.
 
