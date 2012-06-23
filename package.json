@@ -1,22 +1,27 @@
 {
-    "name": "node-eip"
-  , "version": "0.0.1"
-  , "description": ""
-  , "homepage": ""
-  , "repository":{
-        "type": "git"
-      , "url": "https://github.com/jkanschik/node-eip.git"
-    }
-  , "dependencies": {
-		"jade": ">= 0.0.0",
-		"nodemailer": ">= 0.0.0",
-		"mongodb": ">= 0.0.0"
-    }
-  , "devDependencies": {
-		"vows" : ">= 0.5.9"
-    }
-  , "main": "index"
-  , "scripts": {
-		"test": "./node_modules/vows/bin/vows test/* --spec"
-   	}
+  "name": "node-eip",
+  "version": "0.0.1",
+  "description": "Implementation of the Enterprise Integration Patters (EIP) for node.js",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jkanschik/node-eip.git"
+  },
+  "dependencies": {
+    "jade": ">= 0.0.0",
+    "nodemailer": ">= 0.0.0",
+    "mongodb": ">= 0.0.0"
+  },
+  "devDependencies": {
+    "vows": ">= 0.5.9"
+  },
+  "main": "index",
+  "scripts": {
+    "test": "./node_modules/vows/bin/vows test/* --spec"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "author": ""
 }
