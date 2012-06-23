@@ -1,18 +1,13 @@
-// division-by-zero-test.js
-
 var vows = require('vows'),
     assert = require('assert'),
-    Route = require("../lib/eip").Route,
-    eipUtil = require("../lib/eip").util
-    aggregator = require("../lib/eip").aggregator;
+	eip = require("../index");
 
-// Create a Test Suite
 vows.describe('For simple asynchronous routes:').addBatch({
 	'when sending an event to toArray': {
 		topic: function() {
 			var that = this;
 			this.events = [];
-			var r = new Route().toArray(this.events)
+			var r = new eip.Route().toArray(this.events)
 				.process(function(event, cb){that.callback.call({events: that.events}, event, cb)});
 			r.inject({data: 1});
 			r.shutDown();
@@ -30,11 +25,11 @@ vows.describe('For simple asynchronous routes:').addBatch({
 	'when sending two events to an interval aggregator': {
 		topic: function() {
 			var that = this;
-			var r = new Route()
-				.aggregate({emitter: new aggregator.Emitter.IntervalEmitter(1000)})
+			var r = new eip.Route()
+				.aggregate({emitter: new eip.aggregator.Emitter.IntervalEmitter(1000)})
 				.process(this.callback);
-			var e1 = eipUtil.createEvent("First event");
-			var e2 = eipUtil.createEvent("Second event");
+			var e1 = eip.util.createEvent("First event");
+			var e2 = eip.util.createEvent("Second event");
 			e1.headers.correlationId = e2.headers.correlationId = "some id";
 			r.inject(e1);
 			r.inject(e2);
