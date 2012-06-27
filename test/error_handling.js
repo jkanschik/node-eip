@@ -98,6 +98,29 @@ vows.describe('If processors throw an exception in an asynchronous function').ad
 }).export(module);
 
 
+vows.describe('If events are injected after shutdown').addBatch({
+	'and the global error route is defined': {
+		topic: function() {
+			var self = this;
+			this.events = [];
+			var r = new eip.Route()
+				.toArray(this.events)
+				.process(function(event, cb){self.callback.call({events: self.events}, event, cb)});
+			r.inject("Works");
+			r.shutDown(function() {
+//				r.inject("Throws exception");
+			});
+//			r.inject("Works as well");
+		},
+		'events after shut will not be processed': function (event, callback) {
+			assert.isArray(this.events);
+			assert.lengthOf(this.events, 1);
+			assert.equal(this.events[0].body, "Works");
+		}
+	}
+
+}).export(module);
+//*/
 
 
 
