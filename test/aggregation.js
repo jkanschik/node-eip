@@ -33,7 +33,7 @@ vows.describe('For simple asynchronous routes:').addBatch({
 			e1.headers.correlationId = e2.headers.correlationId = "some id";
 			r.inject(e1);
 			r.inject(e2);
-//			r.shutDown();
+			r.shutDown();
 		},
 		'the event is not null': function (event, callback) {
 			assert.isNotNull(event);
