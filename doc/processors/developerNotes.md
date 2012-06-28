@@ -12,12 +12,12 @@ A processors has some properties:
 * `id`: the unique id of the processor.
 * `route`: the route to which the processor belongs.
 * `state`: the current state of the processor. The state can only be changed by the processor.
-    * `started`: available to process events.
-    * `busy`: temporarily not able to process events.
+    - `started`: available to process events.
+    - `busy`: temporarily not able to process events.
       Events are buffered by the route in the in-queue and the route will try to send the events to the processor later.
-    * `shutting down': in the process of shutting down. No more events are accepted, but events may be emitted.
+    - `shutting down`: in the process of shutting down. No more events are accepted, but events may be emitted.
       There may also be some events in the in-queue for this processor, which will be processed by the processor.
-    * `shut down`: shut down was successful, all resources have been released, no events are accepted or emitted.
+    - `shut down`: shut down was successful, all resources have been released, no events are accepted or emitted.
 
 And some methods:
 * `init`: called when the processor is attached to a route.
@@ -68,6 +68,7 @@ The parameter `"my new body"` is passed to the processor function as third param
 
 ### Restrictions
 
+<span class="label label-warning">Warning</span>
 &lt;span class="label label-warning"&gt;Note&lt;/span&gt;
 This way of defining processors is very simple, but it supports no lifecycle, so be careful when you use it:
 
