@@ -12,6 +12,7 @@ A processors has some properties:
 * `id`: the unique id of the processor.
 * `route`: the route to which the processor belongs.
 * `state`: the current state of the processor. The state can only be changed by the processor.
+
     - `started`: available to process events.
     - `busy`: temporarily not able to process events.
       Events are buffered by the route in the in-queue and the route will try to send the events to the processor later.
@@ -20,6 +21,7 @@ A processors has some properties:
     - `shut down`: shut down was successful, all resources have been released, no events are accepted or emitted.
 
 And some methods:
+
 * `init`: called when the processor is attached to a route.
   The parameters of `init` are exactly the parameters used in the DSL when the route is defined.
 * `data`: processes an event and executes a callback when the event has been processed.
