@@ -66,10 +66,8 @@ This is an important step because the new processor must be made available to th
 The last line defines a route which uses the new processor.
 The parameter `"my new body"` is passed to the processor function as third parameter.
 
-### Restrictions
+### <span class="label label-warning">Warning</span>Restrictions
 
-<span class="label label-warning">Warning</span>
-&lt;span class="label label-warning"&gt;Note&lt;/span&gt;
 This way of defining processors is very simple, but it supports no lifecycle, so be careful when you use it:
 
 1. The processor will not be informed when a route is created or shut down.
@@ -81,8 +79,3 @@ This way of defining processors is very simple, but it supports no lifecycle, so
    as a result the processor doesn't know anything about it's context like for example route name. 
 
 Hence you should only use this way of defining processors for simple, synchronous processors.
-
-  
-  
-  
-  
