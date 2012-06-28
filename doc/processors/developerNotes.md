@@ -68,6 +68,7 @@ The parameter `"my new body"` is passed to the processor function as third param
 
 ### Restrictions
 
+&lt;span class="label label-warning"&gt;Note&lt;/span&gt;
 This way of defining processors is very simple, but it supports no lifecycle, so be careful when you use it:
 
 1. The processor will not be informed when a route is created or shut down.
