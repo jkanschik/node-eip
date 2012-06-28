@@ -5,4 +5,7 @@ layout: default
 
 # Node eip
 
-Add some text...
+
+# Versions
+
+Like node.js, even numbered releases of Node EIP are stable releases, odd numbered releases are not stable. 
