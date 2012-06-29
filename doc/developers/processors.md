@@ -20,21 +20,21 @@ A processors has some properties:
      There may also be some events in the in-queue for this processor, which will be processed by the processor.
   * `shut down`: shut down was successful, all resources have been released, no events are accepted or emitted.
 
-And some methods:
+## Methods of a processor
+
+For a fully functional processor, the following functions should be provided:
 
 * `init`: called when the processor is attached to a route.
   The parameters of `init` are exactly the parameters used in the DSL when the route is defined.
-* `data`: processes an event and executes a callback when the event has been processed.
+* `process(event, callback)`: processes an event. When the event has been processed, the callback is invoked.
+  The callback has two parameters: the first is the error and the second the processed event.
 * `pause` ?: advises the processor not to emit any further events.
   Please note that a processor may not pause immediately,
   so that further events may be emitted for an indeterminate period of time.
-* `shutDown`: called by the route when the route is shut down.
+* `shutDown(callback)`: called by the route when the route is shut down.
   The processor should perform all remaining work like closing streams or connections used by the processor.
   When all remaining work is done and (if applicable) all remaining events have been emitted,
-  the callback must be called.
-  
-
-
+  the callback must be called. The callback has one parameter used to indicate errors during shutdown.
 
 ## Functions as processors
 
@@ -68,7 +68,7 @@ This is an important step because the new processor must be made available to th
 The last line defines a route which uses the new processor.
 The parameter `"my new body"` is passed to the processor function as third parameter.
 
-### <span class="label label-warning">Warning</span>Restrictions
+### <span class="label label-warning">Warning</span> Restrictions
 
 This way of defining processors is very simple, but it supports no lifecycle, so be careful when you use it:
 
