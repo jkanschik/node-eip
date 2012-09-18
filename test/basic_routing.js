@@ -79,11 +79,3 @@ vows.describe('For dynamic routes').addBatch({
 		}
 	}
 }).export(module);
-
-
-
-
-
-
-
-

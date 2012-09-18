@@ -1,6 +1,6 @@
 var vows = require('vows'),
     assert = require('assert'),
-	eip = require("../index");
+		eip = require("../index");
 
 vows.describe('For simple asynchronous routes:').addBatch({
 	'when sending an event to toArray': {
@@ -8,7 +8,7 @@ vows.describe('For simple asynchronous routes:').addBatch({
 			var that = this;
 			this.events = [];
 			var r = new eip.Route().toArray(this.events)
-				.process(function(event, cb){that.callback.call({events: that.events}, event, cb)});
+				.process(function(event, cb) {that.callback.call({events: that.events}, event, cb);});
 			r.inject({data: 1});
 			r.shutDown();
 		},
