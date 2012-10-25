@@ -3,7 +3,7 @@ var vows = require('vows'),
     eipUtil = require('../lib/util').Util,
     Route = require("../lib/eip").Route;
 
-vows.describe('For tokenizing strings ').addBatch({
+vows.describe('For events with a string body ').addBatch({
   'without correllationId': {
     topic: function() {
       var self = this;
@@ -26,7 +26,7 @@ vows.describe('For tokenizing strings ').addBatch({
     topic: function() {
       var self = this;
       this.events = [];
-      var r = new Route().tokenize().log().toArray(this.events);
+      var r = new Route().tokenize().toArray(this.events);
       var event = eipUtil.createEvent("Row1\nRow2");
       event.headers.correllationId = "id";
       r.inject(event);
@@ -35,7 +35,7 @@ vows.describe('For tokenizing strings ').addBatch({
       r.inject(event);
       r.shutDown(function(err){self.callback.call(self)});
     },
-    'events with the same correllationId should be merged': function (event, callback) {
+    'events with the same correllationId should be merged on shutdown': function (event, callback) {
       assert.isArray(this.events);
       assert.lengthOf(this.events, 3);
       assert.equal(this.events[0].body, "Row1");
